@@ -1,0 +1,52 @@
+/* universal */
+
+body {
+    font-family: Verdana, sans-serif;
+    font-size: 1em;
+    color: Black;
+    background-color: Wheat; 
+}
+
+/* navbar */
+
+#navbar {
+    display: block;
+    margin: 0;
+    padding: 0;
+    border-bottom: 5px solid DarkRed;
+    overflow: auto; /* the "clearfix hack" */
+}
+
+#navbar ul {
+    padding: 0;
+    margin: 0;
+}
+
+#navbar li {
+    list-style: none;
+    float: left;
+    width: 20%;
+}
+
+#navbar a {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    color: DarkRed;
+    border-radius: 8px 8px 0px 0px;
+    &:hover {
+        background-color: DarkRed;
+        color: Wheat;
+    }
+    &:visited {
+       /* override purpling of links */ 
+    }
+}
+
+.navCurrentLink {
+    background-color: DarkRed;
+    color: Wheat !important; /* keyword to override above settings; technically bad practice */
+                             /* Should cascade from id to class, but we don't class the link, so...*/
+}
