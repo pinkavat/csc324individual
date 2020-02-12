@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
-    root 'hw3#home'
+    get '/home',     to: 'xmucane#home'
 
-    get '/home',    to: 'hw3#home'
+    get '/about',    to: 'xmucane#about'
 
-    get '/about',   to: 'hw3#about'
+    get '/glyphs',   to: 'xmucane#glyphs'
 
-    get '/faq',     to: 'hw3#faq'
+
+    get 'hw3/home',    to: 'hw3#home'
+
+    get 'hw3/about',   to: 'hw3#about'
+
+    get 'hw3/faq',     to: 'hw3#faq'
+
+    root 'xmucane#home'
 end

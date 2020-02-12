@@ -1,0 +1,2 @@
+module XmucaneHelper
+end
