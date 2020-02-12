@@ -1,10 +1,16 @@
 class XmucaneController < ApplicationController
-  def home
-  end
+  
+    @@popolVuhQuotes = ["Whatever there is that might be is simply not there.",
+                        "Only the sea alone is pooled under all the sky; there is nothing whatever gathered together.",
+                        "The Lords of Xibalba were seated there; but they were just mannequins, woodcarvings."]
 
-  def about
-  end
+    def home
+        @rand_placeholder = @@popolVuhQuotes.shuffle.first
+    end
 
-  def glyphs
-  end
+    def about
+    end
+
+    def glyphs
+    end
 end
