@@ -1,4 +1,14 @@
+require 'mayan_date'
+
 class XmucaneController < ApplicationController
+
+    def initialize
+        # I *think* this doesn't break anything
+        super()
+        # Prep a mayan date visible to all pages (TODO perhaps move this to just the main page controller later)
+        @test_date = MayanDate.new
+        @test_date.gregorian = Date.today
+    end
   
     @@popolVuhQuotes = ["Whatever there is that might be is simply not there.",
                         "Only the sea alone is pooled under all the sky; there is nothing whatever gathered together.",

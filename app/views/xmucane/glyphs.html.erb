@@ -1,2 +1,5 @@
 <% provide(:title, "Glyphs") %>
-<blink>Under Construction!</blink>
+
+<!-- Test code for rendering the Maya date in text form -->
+<h3>Today's Mayan Date is:</h3>
+<%= "#{@test_date.tzolkin_trecena} #{@test_date.tzolkin_name} #{@test_date.haab_day} #{@test_date.haab_name}" %>
