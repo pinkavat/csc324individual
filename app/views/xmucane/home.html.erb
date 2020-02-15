@@ -8,4 +8,12 @@
 "<%= @rand_placeholder%>"
 </blockquote>
 <br />
-<p style="font-size:0.75em; font-color:#2F2F2F">Reload the page if you would like another.</p>
+<p style="font-size:0.75em; font-style:italic">Reload the page if you would like another.</p>
+<br>
+
+<!-- Test code for rendering the Maya date in text form -->
+<h3>Today's Mayan Date is:</h3>
+<%="#{@test_date.long_count.reverse} or #{@test_date.mayan_day} days since creation,"%>
+<br>
+<%= "iteration #{@test_date.tzolkin_trecena} of the #{@test_date.tzolkin_name} cycle, day #{@test_date.haab_day} of the month of #{@test_date.haab_name}." %>
+<p style="font-size:0.75em; font-style:italic">Hieroglyphs coming soon!</p>
