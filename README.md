@@ -1,5 +1,7 @@
 # Individual Project (Rails website)
 
+Xmucane: a website that keeps the Mayan Hieroglyphic Calendar
+
 Created February 1, 2020 by Thomas Pinkava
 
 Ruby version: 2.6.5
