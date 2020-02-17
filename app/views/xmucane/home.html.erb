@@ -1,91 +1,102 @@
-<!-- The Hieroglyph Panel-->
 <!--Temporary padding div-->
 <div style="max-height:80vh;padding-left:38%;padding-right:38%;"> 
+
+<!-- The Hieroglyph Panel-->
 <div id="glyphPaneContainer">
         <div class="glyphPairPane">
             <%= image_tag("glyphs/longcount/isig.png", class: "glyphPairFull", alt: "ISIG")%>
-            <!--<%= image_tag("glyphs/haab/kumku.png", alt: "Kumk'u")%>-->
         </div>
 
+
         <div class="glyphPairPane">
-            <%= image_tag("glyphs/numerals/0.png", class: "glyphPairL#{numeral_space 0}", alt: "0")%>
+            <%baktuns = @mayan_date.long_count[4]%>
+            <%= image_tag("glyphs/numerals/#{baktuns}.png", class: "glyphPairL#{numeral_space baktuns}", alt: "#{baktuns}")%>
             <%= image_tag("glyphs/longcount/baktun.png", alt: "B'ak'tun")%>
             <div class="glyphOverlay">
-                <b>MIH-pi-h(i)</b>
+                <b><%=TranslatorHelper::NUMERALS_TRSCR[baktuns]%>-pi-h(i)</b>
                 <br />
-                <i>zero bundles</i>
+                <i><%=TranslatorHelper::NUMERALS_FANCY[baktuns]%> bundle<%=(baktuns == 1)?'':'s'%></i>
             </div>
         </div>
 
+
         <div class="glyphPairPane">
-            <%= image_tag("glyphs/numerals/0.png", class: "glyphPairL#{numeral_space 0}", alt: "0")%>
+            <%katuns = @mayan_date.long_count[3]%>
+            <%= image_tag("glyphs/numerals/#{katuns}.png", class: "glyphPairL#{numeral_space katuns}", alt: "#{katuns}")%>
             <%= image_tag("glyphs/longcount/katun.png", alt: "K'atun")%>
             <div class="glyphOverlay">
-                <b>MIH-WINIK-HAB'</b>
+                <b><%=TranslatorHelper::NUMERALS_TRSCR[katuns]%>-WINIK-HAB'</b>
                 <br />
-                <i>zero score years</i>
+                <i><%=TranslatorHelper::NUMERALS_FANCY[katuns]%> score year<%=(katuns == 1)?'':'s'%></i>
             </div>
-
         </div>
 
         <div class="glyphPairPane">
-            <%= image_tag("glyphs/numerals/1.png", class: "glyphPairL#{numeral_space 1}", alt: "1")%>
+            <%tuns = @mayan_date.long_count[2]%>
+            <%= image_tag("glyphs/numerals/#{tuns}.png", class: "glyphPairL#{numeral_space tuns}", alt: "#{tuns}")%>
             <%= image_tag("glyphs/longcount/tun.png", alt: "Tun")%>
             <div class="glyphOverlay">
-                <b>JU'N-HAB'</b>
+                <b><%=TranslatorHelper::NUMERALS_TRSCR[tuns]%>-HAB'</b>
                 <br />
-                <i>one year</i>
+                <i><%=TranslatorHelper::NUMERALS_FANCY[tuns]%> year<%=(tuns == 1)?'':'s'%></i>
             </div>
-
         </div>
 
         <div class="glyphPairPane">
-            <%= image_tag("glyphs/numerals/10.png", class: "glyphPairL#{numeral_space 10}", alt: "10")%>
+            <%winals = @mayan_date.long_count[1]%>
+            <%= image_tag("glyphs/numerals/#{winals}.png", class: "glyphPairL#{numeral_space winals}", alt: "#{winals}")%>
             <%= image_tag("glyphs/longcount/winal.png", alt: "Winal")%>
             <div class="glyphOverlay">
-                <b>LAJU'N-WINIK</b>
+                <b><%=TranslatorHelper::NUMERALS_TRSCR[winals]%>-WINIK</b>
                 <br />
-                <i>ten score days</i>
+                <i><%=TranslatorHelper::NUMERALS_FANCY[winals]%> score day<%=(winals == 1)?'':'s'%></i>
             </div>
         </div>
 
         <div class="glyphPairPane">
-            <%= image_tag("glyphs/numerals/18.png", class: "glyphPairL#{numeral_space 18}", alt: "18")%>
+            <%kins = @mayan_date.long_count[0]%>
+            <%= image_tag("glyphs/numerals/#{kins}.png", class: "glyphPairL#{numeral_space kins}", alt: "#{kins}")%>
             <%= image_tag("glyphs/longcount/kin.png", alt: "K'in")%>
             <div class="glyphOverlay">
-                <b>WAXAKLAJU'N-K'IN</b>
+                <b><%=TranslatorHelper::NUMERALS_TRSCR[kins]%>-K'IN</b>
                 <br />
-                <i>eighteen days</i>
+                <i><%=TranslatorHelper::NUMERALS_FANCY[kins]%> day<%=(kins == 1)?'':'s'%></i>
             </div>
         </div>
 
         <div class="glyphPairPane">
-            <%= image_tag("glyphs/numerals/14.png", class: "glyphPairL#{numeral_space 14}", alt: "14")%>
-            <%= image_tag("glyphs/tzolkin/ajaw.png", alt: "Ajaw")%>
+            <%trecena = @mayan_date.tzolkin_trecena%>
+            <%veintena = @mayan_date.tzolkin_veintena%>
+            <%= image_tag("glyphs/numerals/#{trecena}.png", class: "glyphPairL#{numeral_space trecena}", alt: "#{trecena}")%>
+            <%= image_tag("glyphs/tzolkin/#{@mayan_date.tzolkin_name}.png", alt: "#{@mayan_date.tzolkin_name}")%>
             <div class="glyphOverlay">
-                <b>CHANLAJU'N-AJAW</b>
+                <b><%=TranslatorHelper::NUMERALS_TRSCR[trecena]%>-<%=TranslatorHelper::TZOLKIN_TRSCR[veintena]%></b>
                 <br />
-                <i>fourteen Ajaw</i>
+                <i><%=TranslatorHelper::NUMERALS_FANCY[trecena]%> <%=TranslatorHelper::TZOLKIN_FANCY[veintena]%></i>
             </div>
-
         </div>
 
         <div class="glyphPairPane">
-            <%= image_tag("glyphs/numerals/8.png", class: "glyphPairL#{numeral_space 8}", alt: "8")%>
-            <%= image_tag("glyphs/haab/kumku.png", alt: "Kumk'u")%>
+            <%haab_day = @mayan_date.haab_day%>
+            <%haab_month = @mayan_date.haab_month%>
+            <%= image_tag((haab_day == 0)?"glyphs/numerals/seating.png":"glyphs/numerals/#{haab_day}.png", 
+                class: "glyphPairL#{(haab_day == 0)?3:(numeral_space haab_day)}", alt: "#{haab_day}")%>
+            <%= image_tag("glyphs/haab/#{@mayan_date.haab_name}.png", alt: "#{@mayan_date.haab_name}")%>
             <div class="glyphOverlay">
-                <b>WAXAK-?-OL-(la)</b>
+                <!--TODO: TRANSCRIPTION OF SEATING GLYPH-->
+                <b><%=(haab_day == 0)?"SEATING":(TranslatorHelper::NUMERALS_TRSCR[haab_day])%>-<%=TranslatorHelper::HAAB_TRSCR[haab_month]%></b>
                 <br />
-                <i>eight Kumk'u</i>
+                <i><%=(haab_day == 0)?"seating of":(TranslatorHelper::NUMERALS_FANCY[haab_day])%> <%=TranslatorHelper::HAAB_FANCY[haab_month]%></i>
             </div>
-
         </div>
 </div> 
+
 </div>
 
 
 <!-- Test code for rendering the Maya date in text form -->
 <h3>Today's Mayan Date is:</h3>
-<%="#{@test_date.long_count.reverse} or #{@test_date.mayan_day} days since creation,"%>
+
+<%="#{@mayan_date.long_count.reverse} or #{@mayan_date.mayan_day} days since creation,"%>
 <br>
-<%= "iteration #{@test_date.tzolkin_trecena} of the #{@test_date.tzolkin_name} cycle, day #{@test_date.haab_day} of the month of #{@test_date.haab_name}." %>
+<%= "iteration #{@mayan_date.tzolkin_trecena} of the #{@mayan_date.tzolkin_name} cycle, day #{@mayan_date.haab_day} of the month of #{@mayan_date.haab_name}." %>
