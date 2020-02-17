@@ -14,7 +14,6 @@ body {
     margin: 0;
     padding: 0;
     border-bottom: 5px solid DarkRed;
-    overflow: auto; /* the "clearfix hack" */
 }
 
 #navbar ul {
@@ -24,7 +23,7 @@ body {
 
 #navbar li {
     list-style: none;
-    float: left;
+    display: inline-block;
     width: 20%;
 }
 
@@ -36,12 +35,12 @@ body {
     font-weight: bold;
     color: DarkRed;
     border-radius: 8px 8px 0px 0px;
+    &:visited {
+       /* override purpling of links */ 
+    }
     &:hover {
         background-color: DarkRed;
         color: Wheat;
-    }
-    &:visited {
-       /* override purpling of links */ 
     }
 }
 
@@ -49,4 +48,63 @@ body {
     background-color: DarkRed;
     color: Wheat !important; /* keyword to override above settings; technically bad practice */
                              /* Should cascade from id to class, but we don't class the link, so...*/
+}
+
+
+
+
+/* glyph pane */
+
+#glyphPaneContainer {
+    display: grid;
+    grid-template-rows: 25% 25% 25% 25%;
+    grid-template-columns: auto auto;
+    max-width:200px;
+}
+
+.glyphPairPane {
+    padding: 0;
+    margin: 0;
+    display: flex;  /* This shouldn't need to be flex but everything breaks if it isn't*/
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+.glyphPairL1 {
+    width: 25%;
+    &+img{
+        width:75%;
+    }
+}
+
+.glyphPairL2 {
+    width: 30%;
+    &+img{
+        width:70%; 
+    }
+}
+
+.glyphPairL3 {
+    width: 35%;
+    &+img{
+        width: 65%;
+    }
+}
+
+.glyphPairL4 {
+    width: 40%;
+    &+img{
+        width: 60%;
+    }
+}
+
+.glyphPairFull {
+    width: 100%;
+    &+img{
+        position: relative;
+        top: 10%;
+        left: -80%;
+        max-width: 60%;
+        max-height: 50%;
+    }
 }
