@@ -84,7 +84,7 @@
             <%= image_tag("glyphs/haab/#{@mayan_date.haab_name}.png", alt: "#{@mayan_date.haab_name}")%>
             <div class="glyphOverlay">
                 <!--TODO: TRANSCRIPTION OF SEATING GLYPH-->
-                <b><%=(haab_day == 0)?"SEATING":(TranslatorHelper::NUMERALS_TRSCR[haab_day])%>-<%=TranslatorHelper::HAAB_TRSCR[haab_month]%></b>
+                <b><%=(haab_day == 0)?"CHUM":(TranslatorHelper::NUMERALS_TRSCR[haab_day])%>-<%=TranslatorHelper::HAAB_TRSCR[haab_month]%></b>
                 <br />
                 <i><%=(haab_day == 0)?"seating of":(TranslatorHelper::NUMERALS_FANCY[haab_day])%> <%=TranslatorHelper::HAAB_FANCY[haab_month]%></i>
             </div>
