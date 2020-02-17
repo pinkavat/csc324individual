@@ -1,8 +1,6 @@
-<h2>Home Page</h2>
-<br />
-
 <!-- The Hieroglyph Panel-->
-<!--TODO Dynamic Generation -->
+<!--Temporary padding div-->
+<div style="max-height:80vh;padding-left:38%;padding-right:38%;"> 
 <div id="glyphPaneContainer">
         <div class="glyphPairPane">
             <%= image_tag("glyphs/longcount/isig.png", class: "glyphPairFull", alt: "ISIG")%>
@@ -10,40 +8,80 @@
         </div>
 
         <div class="glyphPairPane">
-            <%= image_tag("glyphs/numerals/0.png", class: "glyphPairL1", alt: "0")%>
+            <%= image_tag("glyphs/numerals/0.png", class: "glyphPairL#{numeral_space 0}", alt: "0")%>
             <%= image_tag("glyphs/longcount/baktun.png", alt: "B'ak'tun")%>
+            <div class="glyphOverlay">
+                <b>MIH-pi-h(i)</b>
+                <br />
+                <i>zero bundles</i>
+            </div>
         </div>
 
         <div class="glyphPairPane">
-            <%= image_tag("glyphs/numerals/0.png", class: "glyphPairL1", alt: "0")%>
+            <%= image_tag("glyphs/numerals/0.png", class: "glyphPairL#{numeral_space 0}", alt: "0")%>
             <%= image_tag("glyphs/longcount/katun.png", alt: "K'atun")%>
+            <div class="glyphOverlay">
+                <b>MIH-WINIK-HAB'</b>
+                <br />
+                <i>zero score years</i>
+            </div>
+
         </div>
 
         <div class="glyphPairPane">
-            <%= image_tag("glyphs/numerals/1.png", class: "glyphPairL1", alt: "0")%>
+            <%= image_tag("glyphs/numerals/1.png", class: "glyphPairL#{numeral_space 1}", alt: "1")%>
             <%= image_tag("glyphs/longcount/tun.png", alt: "Tun")%>
+            <div class="glyphOverlay">
+                <b>JU'N-HAB'</b>
+                <br />
+                <i>one year</i>
+            </div>
+
         </div>
 
         <div class="glyphPairPane">
-            <%= image_tag("glyphs/numerals/10.png", class: "glyphPairL2", alt: "0")%>
+            <%= image_tag("glyphs/numerals/10.png", class: "glyphPairL#{numeral_space 10}", alt: "10")%>
             <%= image_tag("glyphs/longcount/winal.png", alt: "Winal")%>
+            <div class="glyphOverlay">
+                <b>LAJU'N-WINIK</b>
+                <br />
+                <i>ten score days</i>
+            </div>
         </div>
 
         <div class="glyphPairPane">
-            <%= image_tag("glyphs/numerals/18.png", class: "glyphPairL4", alt: "0")%>
+            <%= image_tag("glyphs/numerals/18.png", class: "glyphPairL#{numeral_space 18}", alt: "18")%>
             <%= image_tag("glyphs/longcount/kin.png", alt: "K'in")%>
+            <div class="glyphOverlay">
+                <b>WAXAKLAJU'N-K'IN</b>
+                <br />
+                <i>eighteen days</i>
+            </div>
         </div>
 
         <div class="glyphPairPane">
-            <%= image_tag("glyphs/numerals/14.png", class: "glyphPairL3", alt: "14")%>
+            <%= image_tag("glyphs/numerals/14.png", class: "glyphPairL#{numeral_space 14}", alt: "14")%>
             <%= image_tag("glyphs/tzolkin/ajaw.png", alt: "Ajaw")%>
+            <div class="glyphOverlay">
+                <b>CHANLAJU'N-AJAW</b>
+                <br />
+                <i>fourteen Ajaw</i>
+            </div>
+
         </div>
 
         <div class="glyphPairPane">
-            <%= image_tag("glyphs/numerals/8.png", class: "glyphPairL2", alt: "8")%>
+            <%= image_tag("glyphs/numerals/8.png", class: "glyphPairL#{numeral_space 8}", alt: "8")%>
             <%= image_tag("glyphs/haab/kumku.png", alt: "Kumk'u")%>
+            <div class="glyphOverlay">
+                <b>WAXAK-?-OL-(la)</b>
+                <br />
+                <i>eight Kumk'u</i>
+            </div>
+
         </div>
 </div> 
+</div>
 
 
 <!-- Test code for rendering the Maya date in text form -->
@@ -51,4 +89,3 @@
 <%="#{@test_date.long_count.reverse} or #{@test_date.mayan_day} days since creation,"%>
 <br>
 <%= "iteration #{@test_date.tzolkin_trecena} of the #{@test_date.tzolkin_name} cycle, day #{@test_date.haab_day} of the month of #{@test_date.haab_name}." %>
-<p style="font-size:0.75em; font-style:italic">Hieroglyphs coming soon!</p>
