@@ -54,6 +54,7 @@ class MayanDate
     md_attr_accessor :haab_day,         :mayan_cr
     md_attr_accessor :haab_month,       :mayan_cr
     md_attr_accessor :haab_name,        nil
+    md_attr_accessor :glyph_g,          nil
     
     def initialize()
         # The conversion constant defaults to Goodman-Martinez-Thompson
@@ -89,7 +90,9 @@ class MayanDate
         @haab_day = 8
         @haab_month = 17
         @haab_name = HAAB_MONTHS[@haab_month]
-        
+
+        # Supplementary series
+        @glyph_g = 9
     end
 
 
@@ -177,6 +180,10 @@ class MayanDate
         @haab_name = HAAB_MONTHS[@haab_month]
     end
 
+    # Set the Supplementary Series based on the Mayan Day
+    def supplement_from_mdc
+        @glyph_g = (@mayan_day % 9 == 0) ? 9 : (@mayan_day % 9)
+    end
 
 
     # Update function is called by every getter created by md_attr_accessor
@@ -188,6 +195,7 @@ class MayanDate
                 mdc_from_greg
                 lc_from_mdc
                 cr_from_mdc
+                supplement_from_mdc
             else
                 # Some part of the Mayan Calendar was last updated; recover the Mayan Day
                 if(@stale == :mayan_mdc)
@@ -200,6 +208,9 @@ class MayanDate
                     mdc_from_cr
                     lc_from_mdc
                 end
+                # Compute supplementary series
+                supplement_from_mdc
+
                 # Convert the Mayan Day info to the relevant Gregorian Calendar Date
                 greg_from_mdc
             end

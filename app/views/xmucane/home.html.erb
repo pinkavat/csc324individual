@@ -3,9 +3,9 @@
 
 <!-- The Hieroglyph Panel-->
 <div id="glyphPaneContainer">
-        <div class="glyphPairPane">
+        <!--<div class="glyphPairPane">
             <%= image_tag("glyphs/longcount/isig.png", class: "glyphPairFull", alt: "ISIG")%>
-        </div>
+        </div>-->
 
 
         <div class="glyphPairPane">
@@ -83,20 +83,23 @@
                 class: "glyphPairL#{(haab_day == 0)?3:(numeral_space haab_day)}", alt: "#{haab_day}")%>
             <%= image_tag("glyphs/haab/#{@mayan_date.haab_name}.png", alt: "#{@mayan_date.haab_name}")%>
             <div class="glyphOverlay">
-                <!--TODO: TRANSCRIPTION OF SEATING GLYPH-->
                 <b><%=(haab_day == 0)?"CHUM":(TranslatorHelper::NUMERALS_TRSCR[haab_day])%>-<%=TranslatorHelper::HAAB_TRSCR[haab_month]%></b>
                 <br />
                 <i><%=(haab_day == 0)?"seating of":(TranslatorHelper::NUMERALS_FANCY[haab_day])%> <%=TranslatorHelper::HAAB_FANCY[haab_month]%></i>
             </div>
         </div>
+
+        <div class="glyphPairPane">
+            <%= image_tag("glyphs/supplementary/G#{@mayan_date.glyph_g}.png", class: "glyphPairFull", alt: "G#{@mayan_date.glyph_g}")%>
+            <div class="glyphOverlay">
+                <b><%=TranslatorHelper::GLYPH_G_TRSCR[@mayan_date.glyph_g]%></b>
+                <br />
+                <i>G<%=@mayan_date.glyph_g%></i>
+            </div>
+        </div>
+
 </div> 
 
 </div>
 
 
-<!-- Test code for rendering the Maya date in text form -->
-<h3>Today's Mayan Date is:</h3>
-
-<%="#{@mayan_date.long_count.reverse} or #{@mayan_date.mayan_day} days since creation,"%>
-<br>
-<%= "iteration #{@mayan_date.tzolkin_trecena} of the #{@mayan_date.tzolkin_name} cycle, day #{@mayan_date.haab_day} of the month of #{@mayan_date.haab_name}." %>

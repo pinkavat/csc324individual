@@ -17,4 +17,7 @@ module TranslatorHelper
                     "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"].freeze
     NUMERALS_TRSCR = ["MIH", "JU'N", "CHA'", "OX", "CHAN", "HO'", "WAK", "HUK", "WAXAK", "B'OLON", "LAJU'N", "B'ULUK", 
                     "LAJCHAN", "OXLAJU'N", "CHANLAJU'N", "HO'LAJU'N", "WAKLAJU'N", "HUKLAJU'N", "WAXAKLAJU'N", "B'OLONLAJU'N"].freeze
+
+    GLYPH_G_TRSCR = ["#{NUMERALS_TRSCR[9]}-CH'AM-K'UH", "K'UH-?", "?", "?", "#{NUMERALS_TRSCR[7]}-?","#{NUMERALS_TRSCR[5]}-?",
+                    "#{NUMERALS_TRSCR[9]}-?", "NAH-?", "?", "?"].freeze
 end
