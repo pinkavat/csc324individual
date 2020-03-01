@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  glyph_key: MyString
+  title: MyString
+  content: MyString
+
+two:
+  glyph_key: MyString
+  title: MyString
+  content: MyString
