@@ -1,0 +1,45 @@
+/* navbar */
+
+#navbar {
+    display: block;
+    margin: 8px;
+    padding: 0;
+    border-bottom: 5px solid DarkRed;
+}
+
+#navbar ul {
+    padding: 0;
+    margin: 0;
+}
+
+#navbar li {
+    list-style: none;
+    display: inline-block;
+    width: 20%;
+}
+
+#navbar a {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    color: DarkRed;
+    border-radius: 8px 8px 0px 0px;
+    &:visited {
+       /* override purpling of links */ 
+    }
+    &:hover {
+        background-color: DarkRed;
+        color: Wheat;
+    }
+}
+
+.navCurrentLink {
+    background-color: DarkRed;
+    color: Wheat !important; /* keyword to override above settings; technically bad practice */
+                             /* Should cascade from id to class, but we don't class the link, so...*/
+}
+
+
+
