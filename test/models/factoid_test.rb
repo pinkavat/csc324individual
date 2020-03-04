@@ -14,11 +14,6 @@ class FactoidTest < ActiveSupport::TestCase
         assert_not @fact.valid?
     end
 
-    test "title should exist" do
-        @fact.title = ""
-        assert_not @fact.valid?
-    end
-
     test "content should exist" do
         @fact.content = ""
         assert_not @fact.valid?

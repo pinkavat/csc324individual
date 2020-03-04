@@ -7,11 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 factoidBase = Factoid.create([
-    {glyph_key:'kin', title: 'Long Count radix', content: 'K\'in is the Mayan word for "Sun"; this is the number of days.'},
-    {glyph_key:'winal', title: 'Long Count radix', content: 'Literally meaning "20", a Winal is worth 20 K\'ins.'},
-    {glyph_key:'tun', title: 'Long Count radix', content: 'The Tun is an approximate solar year, worth 18 Winals or 360 K\'ins.'},
-    {glyph_key:'katun', title: 'Long Count radix', content: 'One score years; that is, 20 Tun or 7,200 K\'ins.'},
-    {glyph_key:'baktun', title: 'Long Count radix', content: 'Literally meaning "bundle", a B\'aktun is worth 20 K\'atun or 144,000 K\'ins.'}
+    {glyph_key:'kin', title: '', content: 'K\'in is the Mayan word for "Sun"; this is the number of days.'},
+    {glyph_key:'winal', title: '', content: 'Literally meaning "20", a Winal is worth 20 K\'ins.'},
+    {glyph_key:'tun', title: '', content: 'The Tun is an approximate solar year, worth 18 Winals or 360 K\'ins.'},
+    {glyph_key:'katun', title: '', content: 'One score years; that is, 20 Tun or 7,200 K\'ins.'},
+    {glyph_key:'baktun', title: '', content: 'Literally meaning "bundle", a B\'aktun is worth 20 K\'atun or 144,000 K\'ins.'}
 ])
 
 factoidFunFacts = Factoid.create([

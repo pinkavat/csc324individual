@@ -1,5 +1,28 @@
 <% provide(:title, "Glyphs") %>
 
-<%= list_all_factoids("baktun") %>
-<%= list_all_factoids("katun")%>
-<%= list_all_factoids("tun")%>
+<h1 class="glyphSectionHead">The Long Count</h1>
+<div class="glyphSet">
+    <!--Populate with all glyphs by function; clicking hides/shows factoids in factoid pane; don't forget alt text and id by name-->
+    <%= get_glyph_set(["baktun", "katun", "tun", "winal", "kin"])%>
+</div>
+<div class="factoidContainer">
+    <!--Populate with all factoids by function; hiding and showing via javascript-->
+    <%= get_factoid_set(["baktun", "katun", "tun", "winal", "kin"])%>
+</div>
+
+<h1 class="glyphSectionHead">The Tzolk'in</h1>
+<div class="glyphSet">
+    <%= get_glyph_set(MayanDate.TZOLKIN_VEINTENAS)%>
+</div>
+<div class="factoidContainer">
+    <%= get_factoid_set(MayanDate.TZOLKIN_VEINTENAS)%>
+</div>
+
+<h1 class="glyphSectionHead">The Haab'</h1>
+<div class="glyphSet">
+    <%= get_glyph_set(MayanDate.HAAB_MONTHS)%>
+</div>
+<div class="factoidContainer">
+    <%= get_factoid_set(MayanDate.HAAB_MONTHS)%>
+</div>
+
