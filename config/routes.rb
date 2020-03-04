@@ -6,4 +6,5 @@ Rails.application.routes.draw do
     get '/glyphs',   to: 'xmucane#glyphs'
 
     root 'xmucane#home'
+
 end

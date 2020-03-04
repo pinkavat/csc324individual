@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200226210151) do
+ActiveRecord::Schema.define(version: 20200301203532) do
 
   create_table "factoids", force: :cascade do |t|
     t.string "glyph_key"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20200226210151) do
     t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["glyph_key"], name: "index_factoids_on_glyph_key"
   end
 
 end

@@ -27,20 +27,23 @@ end
 
 class MayanDate
 
-    TZOLKIN_VEINTENAS = [   "ajaw", "imix", "ik", "akbal", "kan",
+
+    @@TZOLKIN_VEINTENAS = [   "ajaw", "imix", "ik", "akbal", "kan",
                             "chikchan", "kimi", "manik", "lamat",
                             "muluk", "ok", "chuwen", "eb", "ben",
                             "ix", "men", "kib", "kaban", "etznab", "kawak"
                         ].freeze
 
-    HAAB_MONTHS = [ "pop", "wo", "sip", "sots", "sek",
+    @@HAAB_MONTHS = [ "pop", "wo", "sip", "sots", "sek",
                     "xul", "yaxkin", "mol", "chen", "yax",
                     "sak", "keh", "mak", "kankin", "muwan",
                     "pax", "kayab", "kumku", "wayeb"
                   ].freeze
     
     attr_accessor :conversion_constant
-
+    mattr_reader :TZOLKIN_VEINTENAS
+    mattr_reader :HAAB_MONTHS
+    
     # Information is retrieved using lazy conversion; the date is converted
     # upon request, and only if it was changed since last request.
     md_attr_accessor :gregorian,        :gregorian
@@ -83,13 +86,13 @@ class MayanDate
         @tzolkin_pos = 159
         @tzolkin_trecena = 4
         @tzolkin_veintena = 0
-        @tzolkin_name = TZOLKIN_VEINTENAS[@tzolkin_veintena]
+        @tzolkin_name = @@TZOLKIN_VEINTENAS[@tzolkin_veintena]
 
         # Calendar Round: Haab'
         @haab_pos = 348
         @haab_day = 8
         @haab_month = 17
-        @haab_name = HAAB_MONTHS[@haab_month]
+        @haab_name = @@HAAB_MONTHS[@haab_month]
 
         # Supplementary series
         @glyph_g = 9
@@ -172,12 +175,12 @@ class MayanDate
         @tzolkin_pos = (@mayan_day + 159) % 260
         @tzolkin_trecena = (@tzolkin_pos % 13) + 1
         @tzolkin_veintena = (@tzolkin_pos + 1).abs % 20
-        @tzolkin_name = TZOLKIN_VEINTENAS[@tzolkin_veintena]
+        @tzolkin_name = @@TZOLKIN_VEINTENAS[@tzolkin_veintena]
 
         @haab_pos = (@mayan_day + 348) % 365
         @haab_day = @haab_pos % 20
         @haab_month = @haab_pos / 20
-        @haab_name = HAAB_MONTHS[@haab_month]
+        @haab_name = @@HAAB_MONTHS[@haab_month]
     end
 
     # Set the Supplementary Series based on the Mayan Day
