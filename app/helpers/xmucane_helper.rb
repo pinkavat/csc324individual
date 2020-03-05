@@ -1,9 +1,6 @@
 module XmucaneHelper
 
-    # compute the width that a Mayan Vigesimal-By-Fives numeral will require
-    def numeral_space(numeral)
-        [0, numeral-1].max / 5 + 1
-    end
+    # ========== GLYPHS PAGE ==========
 
     # find every Factoid keyed to the indicated glyph and format into HTML
     def list_all_factoids(glyphKey)
@@ -12,6 +9,7 @@ module XmucaneHelper
         end.html_safe
     end
 
+    # collate a set of dynamic glyph images (for the glyphs page)
     def get_glyph_set(glyphs)
         glyphs.inject("") do |out, glyphKey|
             # switch to rails funcs
@@ -19,6 +17,7 @@ module XmucaneHelper
         end.html_safe
     end
 
+    # collate a set of glyph factoids (for the glyphs page)
     def get_factoid_set(glyphs)
         glyphs.inject("") do |out, glyphKey|
             out << list_all_factoids(glyphKey)
