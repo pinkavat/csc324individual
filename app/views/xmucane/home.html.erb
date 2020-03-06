@@ -1,18 +1,23 @@
-<!-- The Hieroglyph Panel-->
-<div id="glyphPaneContainer">
 
-    <% lc = @mayan_date.long_count %>
-    <%= glyph_pair_long_count(lc[4], 'baktun', "bundle#{(lc[4] == 1)?'':'s'}")%>
-    <%= glyph_pair_long_count(lc[3], 'katun', 'score years')%>
-    <%= glyph_pair_long_count(lc[2], 'tun', "year#{(lc[2] == 1)?'':'s'}")%>
-    <%= glyph_pair_long_count(lc[1], 'winal', 'score days')%>
-    <%= glyph_pair_long_count(lc[0], 'kin', "day#{(lc[0] == 1)?'':'s'}")%>
+<div id="dateCalculatorContainer">
+
+    <div id="glyphPaneContainer">
+        <% lc = @mayan_date.long_count %>
+        <%= glyph_pair_long_count(lc[4], 'baktun', "bundle#{(lc[4] == 1)?'':'s'}")%>
+        <%= glyph_pair_long_count(lc[3], 'katun', 'score years')%>
+        <%= glyph_pair_long_count(lc[2], 'tun', "year#{(lc[2] == 1)?'':'s'}")%>
+        <%= glyph_pair_long_count(lc[1], 'winal', 'score days')%>
+        <%= glyph_pair_long_count(lc[0], 'kin', "day#{(lc[0] == 1)?'':'s'}")%>
         
-    <%= glyph_pair_tzolkin(@mayan_date.tzolkin_trecena, @mayan_date.tzolkin_name)%>
-    <%= glyph_pair_haab(@mayan_date.haab_day, @mayan_date.haab_name)%>
+        <%= glyph_pair_tzolkin(@mayan_date.tzolkin_trecena, @mayan_date.tzolkin_name)%>
+        <%= glyph_pair_haab(@mayan_date.haab_day, @mayan_date.haab_name)%>
 
-    <%= glyph_single_g(@mayan_date.glyph_g)%>
+        <%= glyph_single_g(@mayan_date.glyph_g)%>
+
+    </div>
+
+    <div id="dateFormContainer">
+        <p style="color:Wheat;font-style:Verdana, sans-serif;">Placeholder for Date Input Form</p>
+    </div>
 
 </div>
-
-
