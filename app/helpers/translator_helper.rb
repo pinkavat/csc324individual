@@ -151,10 +151,10 @@ module TranslatorHelper
                         'G1'        => "B'OLON-CH'AM-K'UH",
                         'G2'        => "K'UH-?",
                         'G3'        => "?",
-                        'G4'        => "?",
-                        'G5'        => "HUK-?",
-                        'G6'        => "HO'-?",
-                        'G7'        => "B'OLON-?",
-                        'G8'        => "NAH-?",
+                        'G4'        => "HUK-?",
+                        'G5'        => "HO'-?",
+                        'G6'        => "B'OLON-?",
+                        'G7'        => "NAH-?",
+                        'G8'        => "?",
                         'G9'        => "?"}.freeze
 end
