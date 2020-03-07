@@ -10,10 +10,9 @@ module XmucaneHelper
     end
 
     # collate a set of dynamic glyph images (for the glyphs page)
-    def get_glyph_set(glyphs)
+    def get_glyph_set(glyphs, category)
         glyphs.inject("") do |out, glyphKey|
-            # switch to rails funcs
-            out << "#{glyphKey}, "
+            out << image_tag("glyphs/#{category}/#{glyphKey}.png", id: "glyph_#{glyphKey}", alt: "#{TranslatorHelper::FANCY[glyphKey]}")
         end.html_safe
     end
 

@@ -3,7 +3,7 @@
 <h1 class="glyphSectionHead">The Long Count</h1>
 <div class="glyphSet">
     <!--Populate with all glyphs by function; clicking hides/shows factoids in factoid pane; don't forget alt text and id by name-->
-    <%= get_glyph_set(["baktun", "katun", "tun", "winal", "kin"])%>
+    <%= get_glyph_set(["baktun", "katun", "tun", "winal", "kin"], 'longcount')%>
 </div>
 <div class="factoidContainer">
     <!--Populate with all factoids by function; hiding and showing via javascript-->
@@ -12,7 +12,7 @@
 
 <h1 class="glyphSectionHead">The Tzolk'in</h1>
 <div class="glyphSet">
-    <%= get_glyph_set(MayanDate.TZOLKIN_VEINTENAS)%>
+    <%= get_glyph_set(MayanDate.TZOLKIN_VEINTENAS, 'tzolkin')%>
 </div>
 <div class="factoidContainer">
     <%= get_factoid_set(MayanDate.TZOLKIN_VEINTENAS)%>
@@ -20,7 +20,7 @@
 
 <h1 class="glyphSectionHead">The Haab'</h1>
 <div class="glyphSet">
-    <%= get_glyph_set(MayanDate.HAAB_MONTHS)%>
+    <%= get_glyph_set(MayanDate.HAAB_MONTHS, 'haab')%>
 </div>
 <div class="factoidContainer">
     <%= get_factoid_set(MayanDate.HAAB_MONTHS)%>
