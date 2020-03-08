@@ -82,7 +82,16 @@ module TranslatorHelper
                         16          => "sixteen",
                         17          => "seventeen",
                         18          => "eighteen",
-                        19          => "nineteen"}.freeze
+                        19          => "nineteen",
+                        'G1'        => "Glyph G1",
+                        'G2'        => "Glyph G2",
+                        'G3'        => "Glyph G3",
+                        'G4'        => "Glyph G4",
+                        'G5'        => "Glyph G5",
+                        'G6'        => "Glyph G6",
+                        'G7'        => "Glyph G7",
+                        'G8'        => "Glyph G8",
+                        'G9'        => "Glyph G9"}.freeze
 
     TRANSCRIPTION = {   'baktun'    => "pi-h(i)",
                         'katun'     => "WINIK-HAB'",

@@ -2,7 +2,6 @@
 
 <h1 class="glyphSectionHead">The Long Count</h1>
 <div class="glyphSet">
-    <!--Populate with all glyphs by function; clicking hides/shows factoids in factoid pane; don't forget alt text and id by name-->
     <%= get_glyph_set(["baktun", "katun", "tun", "winal", "kin"], 'longcount')%>
 </div>
 
@@ -23,7 +22,7 @@
 
 
 <script>
-    // Didn't want to deal with "manifests", etc. for 10 lines of trivial code
+    // Didn't want to deal with "manifests", etc. for a few lines of trivial code
 
     // set the previously highlighted thing to either the referenced glyph from homepage or something meaningless
     var prevGlyph = <%= raw (@selectedGlyph.nil?) ? "undefined" : "document.getElementById(\"glyph_#{@selectedGlyph}\")" %>
@@ -34,13 +33,20 @@
         if(prevGlyph != undefined) {
             prevGlyph.classList.remove("selectedGlyph");
             prevFactoid.classList.remove("selectedGlyph");
+            prevGlyph.parentNode.classList.remove("unSet");
         }
+
         // Highlight the selected glyph and factoid container
         prevGlyph = obj;
         prevFactoid = obj.nextSibling;
         obj.classList.add("selectedGlyph");
         prevFactoid.classList.add("selectedGlyph");
+
+        // Set the parent glyphSet to be blank
+        prevGlyph.parentNode.classList.add("unSet");
     }
+
+    highlightGlyph(document.getElementById("glyph_<%=@selectedGlyph%>"))
 
 </script>
 
