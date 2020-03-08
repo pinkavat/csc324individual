@@ -12,14 +12,14 @@ module XmucaneHelper
     # collate a set of dynamic glyph images (for the glyphs page)
     def get_glyph_set(glyphs, category)
         glyphs.inject("") do |out, glyphKey|
-            out << image_tag("glyphs/#{category}/#{glyphKey}.png", id: "glyph_#{glyphKey}", alt: "#{TranslatorHelper::FANCY[glyphKey]}")
-        end.html_safe
-    end
-
-    # collate a set of glyph factoids (for the glyphs page)
-    def get_factoid_set(glyphs)
-        glyphs.inject("") do |out, glyphKey|
-            out << list_all_factoids(glyphKey)
+            # clickable image of the glyph
+            out << image_tag("glyphs/#{category}/#{glyphKey}.png", id: "glyph_#{glyphKey}",
+            class:(glyphKey == @selectedGlyph) ? "glyphItem selectedGlyph" : "glyphItem",
+            onclick: "highlightGlyph(this)", alt: "#{TranslatorHelper::FANCY[glyphKey]}") <<
+            # resultant popup
+            (content_tag :div, class: (glyphKey == @selectedGlyph) ? "factoidContainer selectedGlyph" : "factoidContainer" do
+               list_all_factoids(glyphKey) 
+            end)
         end.html_safe
     end
 

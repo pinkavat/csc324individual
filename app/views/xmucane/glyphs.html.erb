@@ -5,24 +5,42 @@
     <!--Populate with all glyphs by function; clicking hides/shows factoids in factoid pane; don't forget alt text and id by name-->
     <%= get_glyph_set(["baktun", "katun", "tun", "winal", "kin"], 'longcount')%>
 </div>
-<div class="factoidContainer">
-    <!--Populate with all factoids by function; hiding and showing via javascript-->
-    <%= get_factoid_set(["baktun", "katun", "tun", "winal", "kin"])%>
-</div>
 
 <h1 class="glyphSectionHead">The Tzolk'in</h1>
 <div class="glyphSet">
     <%= get_glyph_set(MayanDate.TZOLKIN_VEINTENAS, 'tzolkin')%>
-</div>
-<div class="factoidContainer">
-    <%= get_factoid_set(MayanDate.TZOLKIN_VEINTENAS)%>
 </div>
 
 <h1 class="glyphSectionHead">The Haab'</h1>
 <div class="glyphSet">
     <%= get_glyph_set(MayanDate.HAAB_MONTHS, 'haab')%>
 </div>
-<div class="factoidContainer">
-    <%= get_factoid_set(MayanDate.HAAB_MONTHS)%>
+
+<h1 class="glyphSectionHead">The Supplementary Series</h1>
+<div class="glyphSet">
+    <%= get_glyph_set((1..9).to_a.collect{|x| "G#{x}"}, 'supplementary')%>
 </div>
+
+
+<script>
+    // Didn't want to deal with "manifests", etc. for 10 lines of trivial code
+
+    // set the previously highlighted thing to either the referenced glyph from homepage or something meaningless
+    var prevGlyph = <%= raw (@selectedGlyph.nil?) ? "undefined" : "document.getElementById(\"glyph_#{@selectedGlyph}\")" %>
+    var prevFactoid = <%= raw (@selectedGlyph.nil?) ? "undefined" : "document.getElementById(\"glyph_#{@selectedGlyph}\").nextSibling" %>
+
+    function highlightGlyph(obj) {
+        // Unhighlight all other glyphs and factoid containers
+        if(prevGlyph != undefined) {
+            prevGlyph.classList.remove("selectedGlyph");
+            prevFactoid.classList.remove("selectedGlyph");
+        }
+        // Highlight the selected glyph and factoid container
+        prevGlyph = obj;
+        prevFactoid = obj.nextSibling;
+        obj.classList.add("selectedGlyph");
+        prevFactoid.classList.add("selectedGlyph");
+    }
+
+</script>
 

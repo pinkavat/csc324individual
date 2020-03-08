@@ -11,5 +11,6 @@ class XmucaneController < ApplicationController
     end
 
     def glyphs
+        @selectedGlyph = params[:id]
     end
 end

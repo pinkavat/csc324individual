@@ -13,7 +13,7 @@ module GlyphPaneHelper
             # radix glyph image
             image_tag("glyphs/longcount/#{radix}.png", alt: TranslatorHelper::FANCY[radix])<<
             # overlay
-            (content_tag :div, class: "glyphOverlay", onclick:"location.href='#{glyphs_path}#glyph_#{radix}'" do
+            (content_tag :div, class: "glyphOverlay", onclick:"location.href='#{glyphs_path}/#{radix}#glyph_#{radix}'" do
                 content_tag(:b, "#{TranslatorHelper::TRANSCRIPTION[numeral]}-#{TranslatorHelper::TRANSCRIPTION[radix]}")<<
                 "<br />".html_safe<<
                 content_tag(:i, "#{TranslatorHelper::FANCY[numeral]} #{translation}")
@@ -30,7 +30,7 @@ module GlyphPaneHelper
             # veintena glyph image
             image_tag("glyphs/tzolkin/#{veintena}.png", alt: TranslatorHelper::FANCY[veintena])<<
             # overlay
-            (content_tag :div, class: "glyphOverlay", onclick:"location.href='#{glyphs_path}#glyph_#{veintena}'" do
+            (content_tag :div, class: "glyphOverlay", onclick:"location.href='#{glyphs_path}/#{veintena}#glyph_#{veintena}'" do
                 content_tag(:b, "#{TranslatorHelper::TRANSCRIPTION[trecena]}-#{TranslatorHelper::TRANSCRIPTION[veintena]}")<<
                 "<br />".html_safe<<
                 content_tag(:i, "#{TranslatorHelper::FANCY[trecena]} #{TranslatorHelper::FANCY[veintena]}")
@@ -48,7 +48,7 @@ module GlyphPaneHelper
             # month glyph image
             image_tag("glyphs/haab/#{month}.png", alt: TranslatorHelper::FANCY[month])<<
             # overlay
-            (content_tag :div, class: "glyphOverlay", onclick:"location.href='#{glyphs_path}#glyph_#{month}'" do
+            (content_tag :div, class: "glyphOverlay", onclick:"location.href='#{glyphs_path}/#{month}#glyph_#{month}'" do
                 content_tag(:b, "#{(day == 0)?'CHUM':TranslatorHelper::TRANSCRIPTION[day]}-#{TranslatorHelper::TRANSCRIPTION[month]}")<<
                 "<br />".html_safe<<
                 content_tag(:i, "#{(day == 0)?'seating of':TranslatorHelper::FANCY[day]} #{TranslatorHelper::FANCY[month]}")
@@ -63,7 +63,7 @@ module GlyphPaneHelper
             # G glyph image
             image_tag("glyphs/supplementary/G#{g}.png", class: "glyphPairFull", alt: TranslatorHelper::FANCY["G#{g}"])<<
             # overlay
-            (content_tag :div, class: "glyphOverlay" do
+            (content_tag :div, class: "glyphOverlay", onclick:"location.href='#{glyphs_path}/G#{g}#glyph_G#{g}'" do
                 content_tag(:b, "#{TranslatorHelper::TRANSCRIPTION["G#{g}"]}")<<
                 "<br />".html_safe<<
                 content_tag(:i, "G#{g}")

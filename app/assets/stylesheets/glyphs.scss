@@ -5,12 +5,27 @@
 }
 
 .glyphSet{
-    border: 1px solid DarkGray;
+    margin: 0;
+    padding: 0;
+}
+
+.glyphItem{
+    /* ??? */
+}
+
+.glyphItem.selectedGlyph{
+    border: 2px solid darkred;
 }
 
 .factoidContainer{
-
+    position: absolute;
+    visibility: hidden;
 }
+
+.factoidContainer.selectedGlyph{
+    visibility: visible;
+}
+
 
 .factoid{
     margin: 4px;
@@ -22,3 +37,5 @@
     background-color: DarkRed;
     color: Wheat;
 }
+
+
