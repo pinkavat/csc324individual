@@ -34,7 +34,7 @@ class MayanDate
                             "ix", "men", "kib", "kaban", "etznab", "kawak"
                         ].freeze
 
-    @@HAAB_MONTHS = [ "pop", "wo", "sip", "sots", "sek",
+    @@HAAB_MONTHS = [ "pop", "wo", "sip", "sotz", "sek",
                     "xul", "yaxkin", "mol", "chen", "yax",
                     "sak", "keh", "mak", "kankin", "muwan",
                     "pax", "kayab", "kumku", "wayeb"
