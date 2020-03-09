@@ -10,7 +10,7 @@
 
   <body>
     <%= render 'layouts/header' %>
-    <div id="body_contents">
+    <div id="body_contents" <%= yield(:bodyTags)%>>
         <%= yield %>
     </div>
     <%= render 'layouts/footer' %>

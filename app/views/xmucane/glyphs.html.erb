@@ -1,4 +1,5 @@
 <% provide(:title, "Glyphs") %>
+<% provide(:bodyTags, ", onclick=unhighlightGlyphs()") %>
 
 <h1 class="glyphSectionHead">The Long Count</h1>
 <div class="glyphSet">
@@ -22,18 +23,18 @@
 
 
 <script>
-    // Didn't want to deal with "manifests", etc. for a few lines of trivial code
+    // Didn't want to deal with "manifests", etc. for a few lines of trivial, strictly local code
 
     // set the previously highlighted thing to either the referenced glyph from homepage or something meaningless
     var prevGlyph = <%= raw (@selectedGlyph.nil?) ? "undefined" : "document.getElementById(\"glyph_#{@selectedGlyph}\")" %>
     var prevFactoid = <%= raw (@selectedGlyph.nil?) ? "undefined" : "document.getElementById(\"glyph_#{@selectedGlyph}\").nextSibling" %>
 
     function highlightGlyph(obj) {
+        event.stopPropagation();
         // Unhighlight all other glyphs and factoid containers
         if(prevGlyph != undefined) {
             prevGlyph.classList.remove("selectedGlyph");
             prevFactoid.classList.remove("selectedGlyph");
-            prevGlyph.parentNode.classList.remove("unSet");
         }
 
         // Highlight the selected glyph and factoid container
@@ -43,7 +44,24 @@
         prevFactoid.classList.add("selectedGlyph");
 
         // Set the parent glyphSet to be blank
-        prevGlyph.parentNode.classList.add("unSet");
+        var l = document.getElementsByClassName("glyphSet");
+        for(var i = 0; i < l.length; i++){
+            l[i].classList.add("unSet");
+        }
+    }
+
+    function unhighlightGlyphs(){
+        // Unhighlight the highlighted glyph
+        if(prevGlyph != undefined) {
+            prevGlyph.classList.remove("selectedGlyph");
+            prevFactoid.classList.remove("selectedGlyph");
+        }
+
+        // Unblank the glyphsets
+        var l = document.getElementsByClassName("glyphSet");
+        for(var i = 0; i < l.length; i++){
+            l[i].classList.remove("unSet");
+        }
     }
 
     highlightGlyph(document.getElementById("glyph_<%=@selectedGlyph%>"))

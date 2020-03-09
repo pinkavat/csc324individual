@@ -1,11 +1,5 @@
 module TranslatorHelper
-    NUMERALS_FANCY = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", 
-                    "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"].freeze
-    NUMERALS_TRSCR = ["MIH", "JU'N", "CHA'", "OX", "CHAN", "HO'", "WAK", "HUK", "WAXAK", "B'OLON", "LAJU'N", "B'ULUK", 
-                    "LAJCHAN", "OXLAJU'N", "CHANLAJU'N", "HO'LAJU'N", "WAKLAJU'N", "HUKLAJU'N", "WAXAKLAJU'N", "B'OLONLAJU'N"].freeze
 
-    GLYPH_G_TRSCR = ["#{NUMERALS_TRSCR[9]}-CH'AM-K'UH", "K'UH-?", "?", "?", "#{NUMERALS_TRSCR[7]}-?","#{NUMERALS_TRSCR[5]}-?",
-                    "#{NUMERALS_TRSCR[9]}-?", "NAH-?", "?", "?"].freeze
     FANCY = {           'baktun'    => "B'ak'tun",
                         'katun'     => "K'atun",
                         'tun'       => "Tun",
@@ -80,6 +74,7 @@ module TranslatorHelper
                         'G8'        => "Glyph G8",
                         'G9'        => "Glyph G9"}.freeze
 
+
     TRANSCRIPTION = {   'baktun'    => "pi-h(i)",
                         'katun'     => "WINIK-HAB'",
                         'tun'       => "HAB'",
@@ -151,6 +146,61 @@ module TranslatorHelper
                         'G5'        => "HO'-?",
                         'G6'        => "B'OLON-?",
                         'G7'        => "NAH-?",
+                        'G8'        => "?",
+                        'G9'        => "?"}.freeze
+
+
+    TRANSLATION = {     'baktun'    => "bundle",
+                        'katun'     => "score years",
+                        'tun'       => "year",
+                        'winal'     => "score",
+                        'kin'       => "sun",
+                        'ajaw'      => "lord",
+                        'imix'      => "waterlily",
+                        'ik'        => "wind",
+                        'akbal'     => "darkness",
+                        'kan'       => "sacrifice", 
+                        'chikchan'  => "serpent",
+                        'kimi'      => "death",
+                        'manik'     => "deer",
+                        'lamat'     => "venus",
+                        'muluk'     => "jade",
+                        'ok'        => "dog",
+                        'chuwen'    => "artisan",
+                        'eb'        => "rain",
+                        'ben'       => "seed",
+                        'ix'        => "jaguar",
+                        'men'       => "eagle",
+                        'kib'       => "wax",
+                        'kaban'     => "earth",
+                        'etznab'    => "flint",
+                        'kawak'     => "storm",
+                        'pop'       => "mat",
+                        'wo'        => "black conjunction",
+                        'sip'       => "red conjunction",
+                        'sotz'      => "bat",
+                        'sek'       => "death",
+                        'xul'       => "dog",
+                        'yaxkin'    => "jade sun",
+                        'mol'       => "water",
+                        'chen'      => "black storm",
+                        'yax'       => "jade storm",
+                        'sak'       => "white storm",
+                        'keh'       => "red storm",
+                        'mak'       => "enclosed",
+                        'kankin'    => "yellow sun",
+                        'muwan'     => "owl",
+                        'pax'       => "planting",
+                        'kayab'     => "turtle",
+                        'kumku'     => "granary",
+                        'wayeb'     => "five cursed days",
+                        'G1'        => "?",
+                        'G2'        => "?",
+                        'G3'        => "?",
+                        'G4'        => "?",
+                        'G5'        => "?",
+                        'G6'        => "?",
+                        'G7'        => "?",
                         'G8'        => "?",
                         'G9'        => "?"}.freeze
 end
