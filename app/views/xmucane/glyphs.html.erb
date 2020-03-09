@@ -30,7 +30,7 @@
     var prevFactoid = <%= raw (@selectedGlyph.nil?) ? "undefined" : "document.getElementById(\"glyph_#{@selectedGlyph}\").nextSibling" %>
 
     function highlightGlyph(obj) {
-        event.stopPropagation();
+        if(event != undefined) event.stopPropagation();
         // Unhighlight all other glyphs and factoid containers
         if(prevGlyph != undefined) {
             prevGlyph.classList.remove("selectedGlyph");
