@@ -12,15 +12,21 @@ function highlightGlyph(obj) {
     }
 
     // Highlight the selected glyph and factoid container
-    prevGlyph = obj;
-    prevFactoid = obj.nextSibling;
-    obj.classList.add("selectedGlyph");
-    prevFactoid.classList.add("selectedGlyph");
-
-    // Set the parent glyphSet to be blank
-    var l = document.getElementsByClassName("glyphSet");
-    for(var i = 0; i < l.length; i++){
-        l[i].classList.add("unSet");
+    // If the clicked glyph was not the current glyph (click-off)
+    if(obj == prevGlyph){
+        prevGlyph = undefined;
+        unhighlightGlyphs();
+    } else {
+        prevGlyph = obj;
+        prevFactoid = obj.nextSibling;
+        obj.classList.add("selectedGlyph");
+        prevFactoid.classList.add("selectedGlyph");
+    
+        // Set the parent glyphSet to be blank
+        var l = document.getElementsByClassName("glyphSet");
+        for(var i = 0; i < l.length; i++){
+            l[i].classList.add("unSet");
+        }
     }
 }
 

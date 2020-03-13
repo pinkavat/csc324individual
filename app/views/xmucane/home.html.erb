@@ -17,7 +17,11 @@
     </div>
 
     <div id="dateFormContainer">
-        <p style="color:Wheat;font-style:Verdana, sans-serif;">Placeholder for Date Input Form</p>
+        <%= form_tag(home_path, :method => "get") do %>
+            <%= label_tag(:date, "Search for:") %>
+            <%= text_field_tag(:date) %>
+            <%= submit_tag("Search") %>
+        <% end %> 
     </div>
 
 </div>
