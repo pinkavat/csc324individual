@@ -17,11 +17,40 @@
     </div>
 
     <div id="dateFormContainer">
-        <%= form_tag(home_path, :method => "get") do %>
-            <%= label_tag(:date, "Search for:") %>
-            <%= text_field_tag(:date) %>
-            <%= submit_tag("Search") %>
-        <% end %> 
+        <%= form_with(url: home_path, method: "get", local: true, html: {id: 'longCountDateForm'}) do %>
+            <%= number_field_tag('lc[baktun]', lc[4], min: 0, max: 19)%>         
+            <%= number_field_tag('lc[katun]', lc[3], min: 0, max: 19)%>
+            <%= number_field_tag('lc[tun]', lc[2], min: 0, max: 19)%>
+            <%= number_field_tag('lc[winal]', lc[1], min: 0, max: 17)%>
+            <%= number_field_tag('lc[kin]', lc[0], min: 0, max: 19)%>
+     
+            <%= submit_tag("From Long Count")%>
+        <% end %>
+
+        <%= form_with(url: home_path, method: "get", local: true, html: {id: 'gregorianDateForm'}) do %>
+            <% gdt = @mayan_date.gregorian %>
+            <% bce = gdt.year < 0 %>
+            <% gdt = Date.new(bce ? 1 - gdt.year : gdt.year, gdt.month, gdt.day)%>
+
+            <%= number_field_tag('date[day]', gdt.day, min: 0, max: 31)%>
+            <%= select_tag('date[month]', options_for_select(['January', 'February', 'March', 'April', 'May', 'June',
+            'July', 'August', 'September', 'October', 'November', 'December'].map.with_index { |x, i| [x, i + 1] }.to_h, gdt.month))%>
+            <%= number_field_tag('date[year]', gdt.year, min: 0)%>
+            <%= select_tag('date[era]', options_for_select(['CE', 'BCE'], bce ? 'BCE' : 'CE'))%>
+
+            <%= submit_tag("From Gregorian Date") %>
+        <% end %>
+
+        
+        <%= form_with(url: home_path, method: "get", local: true) do %>
+            <%= hidden_field_tag('mdc', @mayan_date.mayan_day - 1)%>
+            <%= submit_tag("-1")%>
+        <% end %>
+        <%= form_with(url: home_path, method: "get", local: true) do %>
+            <%= hidden_field_tag('mdc', @mayan_date.mayan_day + 1)%>
+            <%= submit_tag("+1")%>
+        <% end %>
+
     </div>
 
 </div>
