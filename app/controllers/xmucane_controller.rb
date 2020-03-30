@@ -4,7 +4,7 @@ class XmucaneController < ApplicationController
 
     def home
         @mayan_date = MayanDate.new
-        if params[:commit] == 'From Gregorian Date' then
+        if params[:commit] == 'Calculate from Gregorian Date' then
 
             # Set the mayan date to the requested Gregorian Date from the URL
             year = params[:date][:year].to_i
@@ -16,7 +16,7 @@ class XmucaneController < ApplicationController
                 @mayan_date.mayan_day = 0;
             end
 
-        elsif params[:commit] == 'From Long Count' then
+        elsif params[:commit] == 'Calculate from Long Count' then
 
             # Set the mayan date to the requested Long Count Date from the URL
             begin
@@ -26,7 +26,7 @@ class XmucaneController < ApplicationController
                 @mayan_date.mayan_day = 0;
             end
 
-        elsif params[:commit] == '+1' or params[:commit] == '-1' then
+        elsif params[:commit] == '+1 Day' or params[:commit] == '-1 Day' then
 
             # Set the mayan date to the requested Mayan Day (hidden functionality for fixed-date buttons)
             @mayan_date.mayan_day = params[:mdc].to_i

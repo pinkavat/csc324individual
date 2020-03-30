@@ -17,17 +17,27 @@
     </div>
 
     <div id="dateFormContainer">
-        <%= form_with(url: home_path, method: "get", local: true, html: {id: 'longCountDateForm'}) do %>
-            <%= number_field_tag('lc[baktun]', lc[4], min: 0, max: 19)%>         
+        <%= form_with(url: home_path, method: "get", local: true, html: {id: 'dateFormLongCount'}) do %>
+            <%= number_field_tag('lc[baktun]', lc[4], min: 0, max: 19)%>
+            <%= content_tag(:span, '.')%>
             <%= number_field_tag('lc[katun]', lc[3], min: 0, max: 19)%>
+            <%= content_tag(:span, '.')%>
             <%= number_field_tag('lc[tun]', lc[2], min: 0, max: 19)%>
+            <%= content_tag(:span, '.')%>
             <%= number_field_tag('lc[winal]', lc[1], min: 0, max: 17)%>
+            <%= content_tag(:span, '.')%>
             <%= number_field_tag('lc[kin]', lc[0], min: 0, max: 19)%>
-     
-            <%= submit_tag("From Long Count")%>
+            <br />
+            <%= content_tag(:span, "#{print_calendar_round(@mayan_date)}")%>
+            <br />
+            <%= submit_tag("Calculate from Long Count")%>
         <% end %>
 
-        <%= form_with(url: home_path, method: "get", local: true, html: {id: 'gregorianDateForm'}) do %>
+        <div id="dateFormIs">
+            is
+        </div>
+
+        <%= form_with(url: home_path, method: "get", local: true, html: {id: 'dateFormGregorian'}) do %>
             <% gdt = @mayan_date.gregorian %>
             <% bce = gdt.year < 0 %>
             <% gdt = Date.new(bce ? 1 - gdt.year : gdt.year, gdt.month, gdt.day)%>
@@ -37,20 +47,21 @@
             'July', 'August', 'September', 'October', 'November', 'December'].map.with_index { |x, i| [x, i + 1] }.to_h, gdt.month))%>
             <%= number_field_tag('date[year]', gdt.year, min: 0)%>
             <%= select_tag('date[era]', options_for_select(['CE', 'BCE'], bce ? 'BCE' : 'CE'))%>
-
-            <%= submit_tag("From Gregorian Date") %>
+            <br />
+            <%= submit_tag("Calculate from Gregorian Date") %>
         <% end %>
 
-        
-        <%= form_with(url: home_path, method: "get", local: true) do %>
-            <%= hidden_field_tag('mdc', @mayan_date.mayan_day - 1)%>
-            <%= submit_tag("-1")%>
-        <% end %>
-        <%= form_with(url: home_path, method: "get", local: true) do %>
-            <%= hidden_field_tag('mdc', @mayan_date.mayan_day + 1)%>
-            <%= submit_tag("+1")%>
-        <% end %>
-
+        <div id="dateFormButtons">        
+            <%= form_with(url: home_path, method: "get", local: true) do %>
+                <%= hidden_field_tag('mdc', @mayan_date.mayan_day - 1)%>
+                <%= submit_tag("-1 Day")%>
+            <% end %>
+            <button onclick="location.href='/'">Today</button>
+            <%= form_with(url: home_path, method: "get", local: true) do %>
+                <%= hidden_field_tag('mdc', @mayan_date.mayan_day + 1)%>
+                <%= submit_tag("+1 Day")%>
+            <% end %>
+        </div>
     </div>
 
 </div>

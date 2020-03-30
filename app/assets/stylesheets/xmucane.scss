@@ -21,18 +21,112 @@ body {
     flex: 1;
 }
 
+
+
 /* homepage date calculator */
+
 #dateCalculatorContainer{
     margin: 0;
     padding: 0;
     display: grid;
 }
 
+input[type="submit"], button {
+    background-color: Orange;
+    color: Black;
+    text-decoration: none;
+    border: none;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 8px;
+    border-radius: 4px;
+    margin: 0.8em 0 0.8em 0;
+}
+
+input[type="number"], select{
+    outline: none;
+    font-weight: bold;
+    background-color: OldLace;
+    border: none;
+    border-radius: 8px;
+    &:focus {
+        background-color: White;
+    }
+}
+
 #dateFormContainer{
     margin: 0 auto 0 auto;
     padding: 0;
-    background-color: DarkRed;
+    display: flex;
+    flex-direction: column;
 }
+
+#dateFormLongCount{
+    text-align: center;
+
+    & input[type="number"]{
+        padding: 0.2em;
+        margin: 4px 2px 6px 2px;
+        font-size: 2em;
+    };
+
+    & span {
+        font-size: 1.8em;
+        font-weight: bold;
+        margin-bottom: 0.5em;
+    };
+
+    & input[type="submit"]{
+        float: right;
+        margin-right: 10px;
+    };
+}
+
+#dateFormIs{
+    text-align: center;
+    margin: 5% 0% 5% 0%;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+#dateFormGregorian{
+    text-align: center;
+    & input[type="submit"]{
+        float: right;
+        margin-right: 10px;
+    };
+
+    & input[type="number"]{
+        font-size: 1.5em;
+        margin: 2px;
+        max-width: 30%; 
+    };
+    
+    & select{
+        font-size: 1.5em;
+        margin: 2px;
+        max-width: 30%;
+    };
+}
+
+#dateFormButtons{
+    text-align: center;
+    padding: 10px 5px 10px 5px;
+}
+
+#dateFormButtons form{
+    display: inline-block;
+    width: 30%;
+    & input {
+        width: 100%;
+    }
+}
+
+#dateFormButtons button {
+    display: inline-block;
+    width: 30%;
+}
+
 
 @media screen and (orientation: portrait) {
     #dateCalculatorContainer{
