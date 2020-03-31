@@ -1,0 +1,2 @@
+module FactoidInputHelper
+end
