@@ -1,12 +1,12 @@
-<%= content_tag(:div, "Factoid successfully added to #{@factoid.glyph_key} glyph") unless @factoid.errors.any? %>
-<%= @factoid.errors.any?%>
-<%= if @factoid.errors.any?; puts "ERRORS HAPPENED"; else puts "ERRORS DID NOT HAPPEN"; end%>
+<%= content_tag(:div, "Factoid successfully added to #{@factoid.glyph_key} glyph") unless (@factoid.errors.any? or @factoid.glyph_key.blank?) %>
 
-<%= form_with(url: factoid_input_formpage_path, method: 'post') do %>
-    <%= text_field(:factoid, :glyph_key)%>
-    <%= text_field(:factoid, :title)%>
-    <%= text_field(:factoid, :content)%>
-    <%= submit_tag('Create')%>
+<%= form_with(url: factoid_input_formpage_path, method: 'post', local: true) do %>
+    <%= label(:factoid, :glyph_key, 'Attach Factoid to: ')%>
+    <%= select(:factoid, :glyph_key, @factoid.validGlyphs)%>
+    <%= text_field(:factoid, :title, placeholder: 'Title (optional)')%>
+    <br />
+    <%= text_area(:factoid, :content, cols: 60, rows: 10, placeholder: 'Factoid contents here...')%>
+    <%= submit_tag('Add this Factoid')%>
 <% end %>
 
 <ul>
