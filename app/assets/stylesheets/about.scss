@@ -1,0 +1,28 @@
+/* The About Page */
+
+.aboutCopy p{
+    padding: 1em 2em 1em 2em;
+}
+
+.aboutCopy ul{
+    list-style: none;
+    & li {
+        padding: 0.3em;
+    }
+}
+
+.aboutCopy h2 {
+    text-align: center;
+    padding: 0em 0em 1em 0em;
+}
+
+.aboutCopy .aside {
+    font-size: 0.7em;
+    font-style: italic;
+    padding: 0em 3em 1em 3em;
+}
+
+.horizontalDivider {
+    border-top: 1px solid DarkGray;
+    margin: 2em 0em 2em 0em;
+}
