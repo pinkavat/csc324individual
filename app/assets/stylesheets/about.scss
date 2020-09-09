@@ -1,5 +1,22 @@
 /* The About Page */
 
+#transcriptionNote {
+    border: 4px solid DarkRed;
+    border-radius: 10px;
+    margin: 2em;
+    padding: 0em;
+    & h3 {
+        background-color: DarkRed;
+        margin: 0em;
+        padding: 0.5em;
+        color: Wheat;
+        text-align: center;
+    };
+    & p {
+        margin: 1.2em;
+    };
+}
+
 .aboutCopy p{
     padding: 1em 2em 1em 2em;
 }
